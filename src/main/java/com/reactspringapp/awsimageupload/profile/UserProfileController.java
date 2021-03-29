@@ -18,7 +18,7 @@ public class UserProfileController {
     }
 
     public List<UserProfile> getUserProfiles(){
-        return null;
+        return userProfileService.getUserProfiles();
     }
 
 }
