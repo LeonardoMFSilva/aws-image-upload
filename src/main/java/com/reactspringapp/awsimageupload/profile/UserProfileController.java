@@ -10,6 +10,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("api/v1/user-profile")
+@CrossOrigin(origins = "*", allowedHeaders = "*") //do not use this (*) in production or deployment
 public class UserProfileController {
 
     private final UserProfileService userProfileService;
