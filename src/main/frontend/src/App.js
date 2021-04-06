@@ -24,9 +24,13 @@ const UserProfiles = () => {
 
     return (
       <div key={index}>
-        <Dropzone />
+        {/*Todo profile image*/}
+        <br />
+        <br />
         <h1>{userProfile.username}</h1>
         <p>{userProfile.userProfileID}</p>
+        <Dropzone />
+        <br />
       </div>
     )
     
@@ -46,8 +50,8 @@ function Dropzone() {
       <input {...getInputProps()} />
       {
         isDragActive ?
-        <p>Drop the files here ...</p> :
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <p>Drop the image here ...</p> :
+        <p>Drag 'n' drop profile image here, or click to select profile image</p>
       }
     </div>
   )
