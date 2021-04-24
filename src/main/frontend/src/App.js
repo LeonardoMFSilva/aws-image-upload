@@ -49,9 +49,11 @@ function Dropzone() {
     <div {...getRootProps()}>
       <input {...getInputProps()} />
       {
-        isDragActive ?
-        <p>Drop the image here ...</p> :
+        isDragActive ? (
+        <p>Drop the image here ...</p>
+        ) : (
         <p>Drag 'n' drop profile image here, or click to select profile image</p>
+        )
       }
     </div>
   )

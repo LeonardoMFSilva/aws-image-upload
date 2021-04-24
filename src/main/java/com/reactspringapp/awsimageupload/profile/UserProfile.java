@@ -16,10 +16,12 @@ public class UserProfile {
     }
 
     public UUID getUserProfileId() {
+
         return userProfileId;
     }
 
     public void setUserProfileId(UUID userProfileId) {
+
         this.userProfileId = userProfileId;
     }
 
