@@ -1,4 +1,4 @@
-import React, {useState, userEffect, useEffect, useCallback} from "react";
+import React, { useState, userEffect, useEffect, useCallback } from "react";
 import logo from './logo.svg';
 import './App.css';
 import axios from "axios";
@@ -6,12 +6,12 @@ import { useDropzone } from "react-dropzone";
 
 
 const UserProfiles = () => {
-  
+
   const [UserProfiles, setUserProfile] = useState([]);
 
   const fetchUserProfiles = () => {
     axios.get("http://localhost:8080/api/v1/user-profile").then(res => {
-    setUserProfile(res.data);
+      setUserProfile(res.data);
     });
 
   }
@@ -33,26 +33,26 @@ const UserProfiles = () => {
         <br />
       </div>
     )
-    
+
   });
 };
 
 function Dropzone() {
-  const onDrop = useCallback (acceptedFiles => {
+  const onDrop = useCallback(acceptedFiles => {
     const file = acceptedFiles[0];
     console.log(file)
 
   }, [])
-  const { getRootProps, getInputProps, isDragActive } = useDropzone ({ onDrop })
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
   return (
     <div {...getRootProps()}>
       <input {...getInputProps()} />
       {
         isDragActive ? (
-        <p>Drop the image here ...</p>
+          <p>Drop the image here ...</p>
         ) : (
-        <p>Drag 'n' drop profile image here, or click to select profile image</p>
+          <p>Drag 'n' drop profile image here, or click to select profile image</p>
         )
       }
     </div>
