@@ -1,5 +1,6 @@
 package com.reactspringapp.awsimageupload.profile;
 
+import com.reactspringapp.awsimageupload.filestore.FileStore;
 import org.apache.http.entity.ContentType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,10 +11,12 @@ import java.util.*;
 @Service
 public class UserProfileService {
     private final UserProfileDataAcessService userProfileDataAcessService;
+    private final FileStore fileStore;
 
     @Autowired
-    public UserProfileService (UserProfileDataAcessService userProfileDataAcessService) {
+    public UserProfileService(UserProfileDataAcessService userProfileDataAcessService, FileStore fileStore) {
         this.userProfileDataAcessService = userProfileDataAcessService;
+        this.fileStore = fileStore;
     }
     List<UserProfile> getUserProfiles(){
         return userProfileDataAcessService.getUserProfiles();
@@ -40,7 +43,7 @@ public class UserProfileService {
         metaData.put("Content-Length", String.valueOf(file.getSize()));
         // grabbing metadata from file
 
-
+        fileStore.save();
     }
 
 }
