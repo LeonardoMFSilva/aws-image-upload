@@ -5,9 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class UserProfileService {
@@ -36,6 +34,13 @@ public class UserProfileService {
                 .filter(userProfile -> userProfile.getUserProfileId().equals(userProfileId)) //what this does until here: goes through a list, then filters a userProfile which the id is equal to the one that came from the client
                 .findFirst()
                 .orElseThrow(() -> new IllegalStateException(String.format("User profile %s not found.", userProfileId)));
+
+        Map<String, String>  metaData = new HashMap<>();
+        metaData.put("Content-Type", file.getContentType());
+        metaData.put("Content-Length", String.valueOf(file.getSize()));
+        // grabbing metadata from file
+
+
     }
 
 }
